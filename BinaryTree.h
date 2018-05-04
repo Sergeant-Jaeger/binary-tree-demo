@@ -137,7 +137,7 @@ public:
 		return height(root);
 	}
 
-	virtual void insert(T nData) {
+	void insert(T nData) {
 
 		insert(root, nData);
 	}
