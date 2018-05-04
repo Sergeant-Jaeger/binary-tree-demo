@@ -5,25 +5,18 @@ Author: Aaron Jaeger
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
 
-#include "Node.h"
-
 template <class T>
-class BinaryTree;
+struct Node {
 
-template <class T>
-class BinaryTreeNode : public Node<T> {
+	T data;
+	Node<T>* childLeft;
+	Node<T>* childRight;
 
-	friend class BinaryTree<T>;
+	Node<T>(T nData) {
 
-	BinaryTreeNode<T>* childLeft;
-	BinaryTreeNode<T>* childRight;
-
-public:
-
-	BinaryTreeNode<T>(T nData) : Node<T>(nData) {
-
-		childLeft = nullptr;
+		data = nData;
 		
+		childLeft = nullptr;
 		childRight = nullptr;
 	}
 };
@@ -33,9 +26,9 @@ class BinaryTree {
 
 protected:
 
-	BinaryTreeNode<T>* root;
+	Node<T>* root;
 	
-	int height(BinaryTreeNode<T>* node) const {
+	int height(Node<T>* node) const {
 
 		int treeHeight;
 
@@ -61,11 +54,11 @@ protected:
 		return treeHeight;
 	}
 
-	void insert(BinaryTreeNode<T>* &node, T nData) {
+	void insert(Node<T>* &node, T nData) {
 
 		if (node == nullptr) {
 
-			node = new BinaryTreeNode<T>(nData); 	
+			node = new Node<T>(nData); 	
 		}
 		else {
 
@@ -80,7 +73,7 @@ protected:
 		}
 	}
 
-	unsigned int size(BinaryTreeNode<T>* node) const {
+	unsigned int size(Node<T>* node) const {
 
 		unsigned int treeSize;
 
@@ -96,7 +89,7 @@ protected:
 		return treeSize;
 	}
 
-	void inorder(BinaryTreeNode<T>* node, void(*printFunction)(T)) {
+	void inorder(Node<T>* node, void(*printFunction)(T)) {
 
 		if (node != nullptr) {
 
@@ -108,7 +101,7 @@ protected:
 		}
 	}
 
-	void preorder(BinaryTreeNode<T>* node, void(*printFunction)(T)) {
+	void preorder(Node<T>* node, void(*printFunction)(T)) {
 
 		if (node != nullptr) {
 
@@ -120,7 +113,7 @@ protected:
 		}
 	}
 
-	void postorder(BinaryTreeNode<T>* node, void(*printFunction)(T)) {
+	void postorder(Node<T>* node, void(*printFunction)(T)) {
 
 		if (node != nullptr) {
 
