@@ -1,6 +1,6 @@
 # C++ Binary Tree Demo
 
-This is a simple linked-list demonstration. Some of the concepts included in the source files are inheritence, class friendship, and templating.
+This is a simple binary tree demonstration. Some of the concepts included are inheritence and recursion.
 
 ## Getting Started
 
